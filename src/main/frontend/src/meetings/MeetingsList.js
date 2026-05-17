@@ -1,6 +1,6 @@
 import './MeetingsList.css';
 
-export default function MeetingsList({meetings, onDelete}) {
+export default function MeetingsList({meetings, onDelete, onSignUp, onSignOut}) {
     return (
         <table>
             <thead>
@@ -21,6 +21,21 @@ export default function MeetingsList({meetings, onDelete}) {
                     >Usuń
                     </button>
                     </td>
+                    <td><button type="button"
+                                className="button-outline"
+                                onClick={() => onSignUp(meeting)}
+                    >Zapisz się
+                    </button>
+                    </td>
+
+                    <td><button type="button"
+                                className="button-outline"
+                                onClick={() => onSignOut(meeting)}
+                    >Wypisz się się
+                    </button>
+                    </td>
+
+
                 </tr>)
             }
             </tbody>
