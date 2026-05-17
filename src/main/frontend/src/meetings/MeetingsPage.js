@@ -7,14 +7,16 @@ export default function MeetingsPage({username}) {
     const [addingNewMeeting, setAddingNewMeeting] = useState(false);
 
     useEffect(() => {
+
         const fetchMeetings = async () => {
-            const response = await fetch('/api/meetings');
+            const response = await fetch(`/api/meetings`);
             if (response.ok) {
                 const meetings = await response.json();
                 setMeetings(meetings);
             }
         };
         fetchMeetings();
+
     }, []);
 
 
@@ -26,23 +28,32 @@ export default function MeetingsPage({username}) {
         });
 
         if (response.ok) {
-            const nextMeetings = [...meetings, meeting];
+            const savedMeeting = await response.json();
+            const nextMeetings = [...meetings, savedMeeting];
             setMeetings(nextMeetings);
             setAddingNewMeeting(false);
         }
+
     }
 
 
-    async function handleDeleteMeeting(meeting) {
-        const response = await fetch(`/api/meetings/${meeting.id}`, {
-            method: 'DELETE',
-        });
-        if (response.ok) {
-            const nextMeetings = meetings.filter(m => m !== meeting);
-            setMeetings(nextMeetings);
-        }
-    }
+    //async function handleDeleteMeeting(meeting) {
+      //  const response = await fetch(`/api/meetings/${meeting.id}`, {
+       //     method: 'DELETE',
+      //  });
+      //  if (response.ok) {
+      //      const savedMeeting = await response.json();
+       //     const nextMeetings = [...meetings, savedMeeting];
+         //   setMeetings(nextMeetings);
+        //    setAddingNewMeeting(false);
+       // }
+    //}
 
+
+    function handleDeleteMeeting(meeting) {
+        const nextMeetings = meetings.filter(m => m !== meeting);
+        setMeetings(nextMeetings);
+    }
 
         return (
             <div>
