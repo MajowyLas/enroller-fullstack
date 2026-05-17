@@ -44,11 +44,6 @@ export default function MeetingsPage({username}) {
     }
 
 
-//function handleDeleteMeeting(meeting) {
- //       const nextMeetings = await fetch meetings.filter(m => m !== meeting);
-       // setMeetings(nextMeetings);
-    //}
-
         return (
             <div>
                 <h2>Zajęcia ({meetings.length})</h2>

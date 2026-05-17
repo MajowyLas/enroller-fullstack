@@ -13,7 +13,7 @@ export default function MeetingsList({meetings, onDelete}) {
                 meetings.map((meeting, index) => <tr key={index}>
                     <td>{meeting.title}</td>
                     <td>{meeting.description}</td>
-                    <td><button onClick={() => onDelete(meetings)}>Usuń</button></td>
+                    <td><button onClick={() => onDelete(meeting)}>Usuń</button></td>
                 </tr>)
             }
             </tbody>
