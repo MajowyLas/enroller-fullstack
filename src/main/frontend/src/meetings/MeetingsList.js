@@ -1,3 +1,5 @@
+import './MeetingsList.css';
+
 export default function MeetingsList({meetings, onDelete}) {
     return (
         <table>
@@ -14,7 +16,7 @@ export default function MeetingsList({meetings, onDelete}) {
                     <td>{meeting.title}</td>
                     <td>{meeting.description}</td>
                     <td><button type ="button"
-                                className="button button-outline"
+                                className="button button-outline button-red "
                                 onClick={() => onDelete(meeting)}
                     >Usuń
                     </button>
